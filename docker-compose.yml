@@ -1,0 +1,34 @@
+version: '3.2'
+services:
+  shop:
+    image: 92840/shop:dev1
+    networks:
+    - shop
+    ports:
+    - 8080:8080
+    - 8090:8090
+    environment:
+    - url=jdbc:h2:tcp:H2
+    - username=adam
+    - password=adam123
+    hostname:
+     H2
+    depends_on:
+    - H2
+  H2:
+    image: buildo/h2database
+    networks:
+    - shop
+    environment:
+    - driverClassName=org.h2.Driver
+    - username=adam
+    - password=adam123
+    volumes:
+    - shop:/h2-data
+
+volumes:
+  shop:
+    driver: local
+networks:
+  shop:
+    driver: bridge

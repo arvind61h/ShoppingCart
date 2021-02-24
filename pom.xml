@@ -6,6 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pages Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+    
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -138,6 +139,26 @@
 	</dependency>
 	
 	</dependencies>
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name> Nexus MVN Central Repository</name>
+			<url>http://ec2-172-31-3-14.us-east-2.compute.amazonaws.com:8081/repository/maven-central/</url>
+		</repository>
+	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>Nexus Releases</name>
+			<url>http://ec2-172-31-3-14.us-east-2.compute.amazonaws.com:8081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name> Nexus Snapshots</name>
+			<url>http://ec2-172-31-3-14.us-east-2.compute.amazonaws.com:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	
 	<build>
 		<finalName>shopieasy</finalName>
 	</build>
